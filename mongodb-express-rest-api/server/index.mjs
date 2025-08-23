@@ -13,6 +13,11 @@ app.use(express.json());
 // Load the /posts routes
 app.use("/posts", posts);
 
+// ✅ Add a root route here
+app.get("/", (req, res) => {
+  res.send("Backend is running 🚀");
+});
+
 // Global error handling
 app.use((err, _req, res, next) => {
   res.status(500).send("Uh oh! An unexpected error occured.")
